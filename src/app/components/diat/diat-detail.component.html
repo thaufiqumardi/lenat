@@ -1,0 +1,125 @@
+<section class="content-header">
+  <h1>Daftar Inventaris Aktiva Tetap
+    <small>Detail</small>
+  </h1>
+  <div class="header-btn">
+    <a class="btn btn-sm btn-default" [routerLink]="['../']">
+      <span class="fa fa-arrow-left"></span> Kembali
+    </a>
+    <button class="btn btn-sm btn-default" (click)="onBtnCetakClick()">
+      <span class="fa fa-print"></span> Cetak
+    </button>
+    <a class="btn btn-sm btn-warning" routerLink="./edit" *ngIf="allowEdit">
+      <span class="fa fa-edit"></span> Ubah
+    </a>
+  </div>
+</section>
+
+<div class="creator hidden-print">
+  Dibuat oleh {{diat.namaFpf}} pada {{diat.createdDate | date:"dd-MM-yyyy"}}
+</div>
+
+<section class="content">
+  <div class="box box-primary detail">
+    <div class="box-header">
+      <img class="document-logo" src="assets/images/headerDokumen.png"/>
+      PT. Len Industri (Persero)
+      <div class="document-code">VFR-001</div>
+    </div>
+    <div class="box-body">
+      <h4 class="text-center text-bold">
+        DAFTAR INVENTARIS AKTIVA TETAP (DIAT)<br/>
+        <small><u>PERIODE: {{diat.periode}}</u></small>
+      </h4>
+      <dl class="dl-horizontal">
+        <dt>Lokasi/Nomor Ruangan :</dt>
+        <dd>{{diat.lokasiNomorRuangan}}</dd>
+        <dt>Penanggung Jawab :</dt>
+        <dd>{{diat.penanggungJawab}}</dd>
+        <dt>Unit Kerja :</dt>
+        <dd>{{diat.kodeUnitKerja}} {{diat.namaUnitKerja}}</dd>
+      </dl>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Nama Aktiva Tetap</th>
+              <th>Merk</th>
+              <th>Tipe</th>
+              <th>No. Seri</th>
+              <th>No. Inv. Lama</th>
+              <th>No. Inv. Baru</th>
+              <th>No. DPAT</th>
+              <th>Thn. Beli</th>
+              <th>Kondisi</th>
+              <th>Status</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of diat?.diatDetail; let i = index">
+              <td class="text-right">{{i + 1}}</td>
+              <td>{{row.namaAktivaTetap}}</td>
+              <td>{{row.namaMerk}}</td>
+              <td>{{row.namaTipe}}</td>
+              <td>{{row.noSeri}}</td>
+              <td>{{row.noInventaris1}}</td>
+              <td>{{row.noInventaris}}</td>
+              <td>{{row.noDpat}}</td>
+              <td>{{row.tahunBeli}}</td>
+              <td>{{row.kondisi}}</td>
+              <td>{{row.status}}</td>
+              <td>{{row.keterangan}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-sm">
+        <b>Kondisi</b>:
+          <b>BP</b> = Baik Dipakai;
+          <b>RB</b> = Rusak Berat;
+          <b>RR</b> = Rusak Ringan;
+          <b>BT</b> = Baik Tidak Dipakai.
+          <br/>
+        <b>Status:</b>
+          Ada, Dipinjam, Hilang, dll.
+          <br/>
+        <b>Keterangan</b>:
+          Perlakuan (kalibrasi, mutasi, perbaikan, analisa, solusi, dll).
+      </p>
+
+      <table class="table">
+        <tr>
+          <td class="text-center no-border">
+            <b>Penanggung jawab</b><br/>
+            Ka. Unit Kerja<br/><br/><br/><br/>
+            <u>{{diat.namaKaUnitKerja}}</u><br/>
+            NIK. {{diat.nikKaUnitKerja}}
+          </td>
+          <td class="text-center no-border">
+            <b>Pelaksana,</b><br/>
+            Pemelihara Fasilitas<br/><br/><br/><br/>
+            <u>{{diat.namaFpf}}</u><br/>
+            NIK. {{diat.nikFpf}}
+          </td>
+        </tr>
+      </table>
+
+      <br/>
+      <table class="table visible-print">
+        <tr>
+          <td>Acc:</td>
+          <td>Lembar 1: Unit General Affairs;</td>
+          <td>Lembar 2: Unit Akuntansi;</td>
+          <td>Lembar 3: Unit Arsip.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="overlay" *ngIf="prosessing">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>

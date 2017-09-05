@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <!-- Header App -->
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="navbar-header">
+        <a class="navbar-brand">Aplikasi Pengendalian Aktiva Tetap</a>
+      </div>
+      <!-- Sidebar Toggle Button-->
+      <a href="#" class="sidebar-toggle visible-xs" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Top-Right Nav -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{authServ.activeUser.nama}} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu" id="ul-role">
+              <li *ngFor="let role of authServ.activeUser.roles; let i = index">
+                <a [class.active]="i==authServ.indexActiveRole" (click)="onRoleChange(i)" >
+                  <i class="fa"></i> {{role.roleName}}
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="btn-signout" (click)="onBtnLogoutClick()">
+              <div><i class="fa fa-power-off"></i>&nbsp; Sign Out</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <app-menu [roleId]="activeRoleId"></app-menu>
+    </section>
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> {{appVersion}}
+    </div>
+    <strong>2017 &copy; PT. Len Industri</strong>
+  </footer>
+
+</div>
+
+<modal-alert></modal-alert>

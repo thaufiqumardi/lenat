@@ -1,0 +1,35 @@
+{
+    "status":"",
+    "data":[
+        {
+            "noDPAT":"001/DPAT/IV/2017",
+            "noBAPB":"BAP310000338",
+            "tglPerolehan":"05/05/2019",
+            "supplier":"Pt.Pertamina",
+            "MataAnggaran":"Rp",
+            "DpatDetail":[
+                {
+                    "namaBarang":"Pertamax",
+                    "merk":"Blah",
+                    "tipe":"Tipeting",
+                    "noSeri":"teuseri",
+                    "noInventaris":"80/idfs-/sdfsdf",
+                    "jumlah":"5",
+                    "HargaBeli":"Rp.10000",
+                    "keterangan":"blablabla"
+                },
+                {
+                    "namaBarang":"Pertamini",
+                    "merk":"Blah",
+                    "tipe":"Tipeting",
+                    "noSeri":"teuseri",
+                    "noInventaris":"80/idfs-/sdfsdf",
+                    "jumlah":"5",
+                    "HargaBeli":"Rp.10000",
+                    "keterangan":"blablabla"
+                }
+            ]
+        }
+        
+    ]
+}

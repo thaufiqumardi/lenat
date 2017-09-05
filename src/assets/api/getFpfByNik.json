@@ -1,0 +1,22 @@
+{
+  "status": "",
+  "data": [
+    {
+      "userId": 1,
+      "nik": "1234567",
+      "nama": "Faris Maulana",
+      "unitKerja": [
+        {
+          "unitKerjaId": 230,
+          "kodeUnitKerja": "LP",
+          "namaUnitKerja": "Divisi Produksi"
+        },
+        {
+          "unitKerjaId": 239,
+          "kodeUnitKerja": "LM",
+          "namaUnitKerja": "Divisi Manajemen Strategi & Operasi"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<div class="modal fade detail-at" tabindex="-1" role="dialog" aria-labelledby="LargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Detail Aktiva Tetap
+          <i class="fa fa-refresh fa-spin overlay" *ngIf="prosessing"></i>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <dl>
+              <dt>No. BAPB</dt><dd>&nbsp; {{at.noBapb}}</dd>
+              <dt>No. PAT</dt><dd>&nbsp; {{at.noDpat}}</dd>
+              <dt>No. Inventari Baru</dt><dd>&nbsp; {{at.noInventaris1}}</dd>
+              <dt>No. Inventaris Lama</dt><dd>&nbsp; {{at.noInventaris2}}<br>...<br>...<br>...<br>...</dd>
+              <dt>Tanggal</dt><dd>&nbsp; {{at.tanggalBeli | date:"dd/MM/yyyy"}}</dd>
+            </dl>
+          </div>
+          <div class="col-sm-4">
+            <dl>
+              <dt>Kelompok Barang</dt><dd>&nbsp; {{at.namaKelompokBarang}}</dd>
+              <dt>Nama Aktiva Tetap</dt><dd>&nbsp; {{at.namaAktivaTetap}}</dd>
+              <dt>Merk</dt><dd>&nbsp; {{at.namaMerk}}</dd>
+              <dt>Tipe</dt><dd>&nbsp; {{at.namaTipe}}</dd>
+              <dt>No. Seri</dt><dd>&nbsp; {{at.noSeri}}</dd>
+              <dt>Tahun Beli</dt><dd>&nbsp; {{at.tahunBeli}}</dd>
+              <dt>Nilai Perolehan</dt><dd>&nbsp; {{at.nilaiPerolehan}}</dd>
+            </dl>
+          </div>
+          <div class="col-sm-4">
+            <dl>
+              <dt>Lokasi Kota</dt><dd>&nbsp; {{at.namaLokasi}}</dd>
+              <dt>Lokasi Kantor</dt><dd>&nbsp; {{at.lokasiKantor}}</dd>
+              <dt>Fungsi Pemelihara Fasilitas</dt><dd>...</dd>
+              <dt>Status</dt><dd>&nbsp; {{at.status}}</dd>
+              <dt>Kondisi</dt>
+              <dd>
+                <div *ngIf="!editKondisi">
+                    &nbsp; <span [innerHTML]="at.kondisi | labelkondisi"></span> {{getKondisi(at.kondisi)}}
+                    <a (click)="onUbahKondisiClick()">[Ubah]</a>
+                </div>
+                <div class="input-group" *ngIf="editKondisi">
+                  <select class="form-control" name="kondisi" [ngModel]="at.kondisi" #kondisi>
+                    <option value="BP">BP - Baik Dipakai</option>
+                    <option value="RB">RB - Rusak Berat</option>
+                    <option value="RR">RR - Rusak Ringan</option>
+                    <option value="BT">BT - Baik Tidak Dipakai</option>
+                  </select>
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="onBtnSimpanClick(kondisi)">Simpan</button>
+                  </span>
+                </div>
+              </dd>
+              <dt>Keterangan</dt><dd>&nbsp; {{at.keterangan}}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning pull-left" data-dismiss="modal" *ngIf="allowEdit"><span class="fa fa-pencil"></span> Ubah</button>
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" *ngIf="allowDelete"><span class="fa fa-trash"></span> Hapus</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>

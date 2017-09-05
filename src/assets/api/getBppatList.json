@@ -1,0 +1,30 @@
+{
+  "status": "",
+  "total": 2,
+  "data": [
+    {
+      "bppatId": 2,
+      "noBppat": "874/BPPAT/HUF/XII/2017",
+      "jenisBppat": 1,
+      "namaKegiatan": "Seminar Teknologi",
+      "kebutuhan": "Program",
+      "namaFpfPeminjam": "Jajat Ismail",
+      "namaFpfPemberi": "Irwan Maulana",
+      "rencanaKembali": "2017-08-03",
+      "apprKaPeminjam": 1,
+      "apprKaPemberi": 1
+    },
+    {
+      "bppatId": 1,
+      "noBppat": "526/BPPAT/HUF/XII/2017",
+      "jenisBppat": 2,
+      "namaKegiatan": "Proyek pembangunan kcp cirebon",
+      "kebutuhan": "Proyek",
+      "namaFpfPeminjam": "Irwan Maulana",
+      "namaFpfPemberi": "Sukiman Budiono",
+      "rencanaKembali": "2017-11-10",
+      "apprKaPeminjam": 1,
+      "apprKaPemberi": 2
+    }
+  ]
+}

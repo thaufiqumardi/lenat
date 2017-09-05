@@ -1,0 +1,21 @@
+{
+  "status": "",
+  "data": [
+    {
+      "babhId": "1",
+	  "createdDate": "2017-08-17",
+      "noBabh": "786/BABH/YS/XII/2017",
+      "tanggalBabh": "2017/07/07",
+      "nama": "Jajat Ismail",
+      "nik": "",
+      "ktp": "3204050103910001",
+      "alamat": "Jl. Pandanwangi - Istiqomah 1 No. 40 Cinunuk",
+      "lokasiHilang": "Rumah probadi saya",
+      "tanggalHilang": "2017/07/01",
+      "laporan": "..."
+	  "fpfId": 1,
+	  "nikFpf": "1234567",
+	  "namaFpf: "Surya Saputra"
+    }
+  ]
+}

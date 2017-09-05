@@ -1,0 +1,26 @@
+{
+  "status": "",
+  "total": 2,
+  "data": [
+    {
+      "babhId": 1,
+      "noBabh": "087/BABH/TYH/VII/2017",
+      "tanggalBabh": "2017-07-07",
+      "nama": "Jajat Ismail",
+      "nik": "",
+      "ktp": "3204050103910001",
+      "lokasiHilang": "Rumah pribadi saya",
+      "tanggalHilang": "2017-07-01"
+    },
+    {
+      "babhId": 2,
+      "noBabh": "023/BABH/TYH/VII/2017",
+      "tanggalBabh": "2017-07-07",
+      "nama": "Ridwan Yusuf",
+      "nik": "8763GH87",
+      "ktp": "",
+      "lokasiHilang": "Ruang server",
+      "tanggalHilang": "2017-07-03"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "",
+  "data": [
+    {
+      "unitKerjaId": 239,
+      "kodeUnitKerja": "LM",
+      "namaUnitKerja": "Divisi Manajemen Strategi & Operasi",
+      "kepala": [
+        {
+          "userId": 532,
+          "nik": "9887654",
+          "nama": "Halim Prabowo"
+        }
+      ]
+    }
+  ]
+}

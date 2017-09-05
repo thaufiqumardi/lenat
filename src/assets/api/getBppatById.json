@@ -1,0 +1,68 @@
+{
+  "status": "",
+  "data": [
+    {
+      "bppatId": "42",
+      "createdDate": "2017-08-17",
+      "tanggalPeminjaman": "2017-07-09",
+      "tanggalPengembalian": "",
+      "rencanaKembali": "2017-09-03",
+      "noBppat": "872/BPPAT/HY/VII/2017",
+      "jenisBppat": 1,
+      "namaKegiatan": "Proyek pembangunan KCP Cirebon",
+      "kodeKegiatan": "PR9862",
+      "kebutuhan": "Proyek",
+      "unitKerjaIdPeminjam": 243,
+      "unitKerjaIdPemberi": 239,
+      "kodeUnitKerjaPeminjam": "AT-1",
+      "kodeUnitKerjaPemberi": "GL",
+      "namaUnitKerjaPeminjam": "string",
+      "namaUnitKerjaPemberi": "string",
+      "userIdFpfPeminjam": 3,
+      "userIdFpfPemberi": 3,
+      "nikFpfPeminjam": "97261JH92",
+      "nikFpfPemberi": "8763FY973",
+      "namaFpfPeminjam": "Santoso Budi Surya",
+      "namaFpfPemberi": "Sasanto Budi Luhur",
+      "userIdKaPeminjam1": 76,
+      "userIdKaPemberi1": 45,
+      "nikKaPeminjam1": "6526GFD92",
+      "nikKaPemberi1": "76234HUF3",
+      "namaKaPeminjam1": "Hirosi Nagasaki",
+      "namaKaPemberi1": "Susetyo Bagas Yoga",
+      "userIdKaPeminjam2": null,
+      "userIdKaPemberi2": null,
+      "nikKaPeminjam2": "",
+      "nikKaPemberi2": "",
+      "namaKaPeminjam2": "",
+      "namaKaPemberi2": "",
+      "apprKaPeminjam1": 1,
+      "apprKaPemberi1": 2,
+      "apprKaPeminjam2": null,
+      "apprKaPemberi2": null,
+      "bppatStatusId": 1,
+      "bppatDetail": [
+        {
+          "diiId": 2,
+          "namaBarang": "Bor listrik",
+          "namaMerk": "Tayxi",
+          "namaTipe": "RX8746",
+          "noSeri": "5629528617652",
+          "noInventaris": "A76BHF723472J-17",
+          "kondisiPinjam": "BP",
+          "kondisiKembali": ""
+        },
+        {
+          "diiId": 5,
+          "namaBarang": "Solder",
+          "namaMerk": "Panasonic",
+          "namaTipe": "7RSKZ-1",
+          "noSeri": "8963637465222",
+          "noInventaris": "A7626GHG7224-17",
+          "kondisiPinjam": "BP",
+          "kondisiKembali": ""
+        }
+      ]
+    }
+  ]
+}

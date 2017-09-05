@@ -1,0 +1,51 @@
+{
+  "status": 200,
+  "data": [
+    {
+      "diatId": 1,
+      "createdDate": "2017-08-27",
+      "periode": "",
+      "lokasiNomorRuangan": "05. HCGA/GA/Gd. A Lt.1/R. Tamu",
+      "penanggungJawab": "Surya Saputra",
+      "unitKerjaId": 223,
+      "kodeUnitKerja": "LV",
+      "namaUnitKerja": "Divisi Investasi & Manajemen Risiko",
+      "userIdKaUnitKerja": 5,
+      "nikKaUnitKerja": "7653873",
+      "namaKaUnitKerja": "Surya Saputra",
+      "apprKaUnitKerja": "0",
+      "userIdFpf": 1,
+      "nikFpf": "1234567",
+      "namaFpf": "Jajat Ismail",
+      "diatStatusId": "1",
+      "diatDetail": [
+        {
+          "diiId": 7084,
+          "namaAktivaTetap": "Telepon",
+          "namaMerk": "Panasonic KX-TG1311",
+          "namaTipe": "Telepon",
+          "noInventaris1": "12A0205/14/155",
+          "noInventaris": "A12A02718214-001",
+          "noDpat": "078/PAT/GL/III/2014",
+          "tahunBeli": 2014,
+          "kondisi": "BP",
+          "status": "Ada",
+          "keterangan": ""
+        },
+        {
+          "diiId": 7084,
+          "namaAktivaTetap": "Telepon",
+          "namaMerk": "Panasonic KX-TG1311",
+          "namaTipe": "Telepon",
+          "noInventaris1": "12A0205/14/155",
+          "noInventaris": "A12A02718214-001",
+          "noDpat": "078/PAT/GL/III/2014",
+          "tahunBeli": 2014,
+          "kondisi": "BP",
+          "status": "Ada",
+          "keterangan": ""
+        }
+      ]
+    }
+  ]
+}

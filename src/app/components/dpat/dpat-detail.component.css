@@ -1,0 +1,29 @@
+@media print {
+    table.approval {
+      table-layout: fixed;
+    }
+    
+    .approval td {
+      font-size: 9pt !important;
+      overflow: visible !important;
+      white-space: nowrap !important;
+    }
+  
+    .print-8px {
+      font-size: 8pt !important;
+    }
+  
+    .detail .box-header,
+    .detail .box-body {
+      padding: 0;
+    }
+  }
+  
+  section.content {
+    max-width: 200mm !important;
+  }
+  
+  .detail h4 {
+    margin-top: 0;
+  }
+  

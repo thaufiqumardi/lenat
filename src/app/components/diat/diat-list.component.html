@@ -1,0 +1,48 @@
+<section class="content-header">
+  <h1>Daftar Inventaris Aktiva Tetap</h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-primary" routerLink="./new" *ngIf="allowNew">
+      <span class="fa fa-plus-circle"></span> Tambah Baru
+    </button>
+    <button class="btn btn-sm btn-primary">
+      <span class="fa fa-search"></span> Pencarian
+    </button>
+  </div>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="no">No.</th>
+            <th>Periode</th>
+            <th>Lokasi / Ruangan</th>
+            <th>Penanggung Jawab</th>
+            <th>Unit Kerja</th>
+            <th>FPF</th>
+            <th style="width: 60px"></th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let row of tableData; let i = index">
+            <td class="text-right">{{i + diatServ.listOffset + 1}}</td>
+            <td title="{{row.periode}}">{{row.periode}}</td>
+            <td title="{{row.lokasiNomorRuangan}}">{{row.lokasiNomorRuangan}}</td>
+            <td title="{{row.penanggungJawab}}">{{row.penanggungJawab}}</td>
+            <td title="{{row.namaUnitKerja}}"><span [outerHTML]="row.apprKaUnitKerja | approval"></span> {{row.namaUnitKerja}}</td>
+            <td title="{{row.namaFpf}}">{{row.namaFpf}}</td>
+            <td><a class="btn btn-xs btn-default" routerLink="./{{row.diatId}}">Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-footer">
+        <pagination [totalRows]="totalRows" [offset]="diatServ.listOffset" (offset)="onPaginationClick($event)">Pagination</pagination>
+    </div>
+    <div class="overlay" *ngIf="loadingTable">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>

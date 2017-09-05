@@ -1,0 +1,65 @@
+<section class="content-header">
+  <h1>Bukti Peminjaman dan Pengembalian Aktiva Tetap</h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-primary" routerLink="./new" *ngIf="allowNew">
+      <span class="fa fa-plus-circle"></span> Peminjaman Baru
+    </button>
+    <button class="btn btn-sm btn-primary">
+      <span class="fa fa-search"></span> Pencarian
+    </button>
+  </div>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-striped table-bordered" style="margin-bottom: 0;">
+        <thead>
+          <tr>
+            <th class="no">No.</th>
+            <th>No. BPPAT</th>
+            <th>Nama Kegiatan</th>
+            <th>Kebutuhan</th>
+            <th>Peminjam</th>
+            <th style="width: 25px;"></th>
+            <th>Pemberi</th>
+            <th>Renc. Kembali</th>
+            <th style="width: 60px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData; let i = index">
+            <td class="text-right">{{i + bppatService.offset + 1}}</td>
+            <td title="{{row.noBppat}}">{{row.noBppat}}</td>
+            <td title="{{row.namaKegiatan}}">{{row.namaKegiatan}}</td>
+            <td title="{{row.kebutuhan}}">{{row.kebutuhan}}</td>
+            <td>
+              <span [outerHTML]="row.apprKaPeminjam | approval"></span>
+              <span title="{{row.namaUnitKerjaPeminjam}}">{{row.kodeUnitKerjaPeminjam}}</span>
+            </td>
+            <td>
+              <span *ngIf="row.jenisBppat==1" class="fa fa-arrow-left" title="Peminjaman"></span>
+              <span *ngIf="row.jenisBppat==2" class="fa fa-arrow-right" title="Pengembalian"></span>
+            </td>
+            <td>
+              <span [outerHTML]="row.apprKaPemberi | approval"></span>
+              <span title="{{row.namaUnitKerjaPemberi}}">{{row.kodeUnitKerjaPemberi}}</span>
+            </td>
+            <td title="{{row.rencanaKembali | mydate}}">{{row.rencanaKembali | date:"dd/MM/yyyy"}}</td>
+            <td>
+              <button class="btn btn-xs btn-default" [routerLink]="[row.bppatId]">Detail</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-footer">
+      <!--span class="fa fa-upload"></span> : Peminjaman |
+      <span class="fa fa-download"></span> : Pengembalian-->
+      <pagination [totalRows]="totalRows" [offset]="bppatService.offset" (offset)="onPaginationClick($event)">Pagination</pagination>
+    </div>
+    <div class="overlay" *ngIf="loadingTable">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>

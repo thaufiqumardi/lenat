@@ -1,0 +1,45 @@
+<section class="content-header">
+        <h1>Daftar Penambahan Aktifa Tetap</h1>
+        <div class="header-btn">
+                <a class="btn btn-sm btn-primary" routerLink="./new">
+                    <span class="fa fa-plus-circle"></span> Tambah Baru
+                  </a>
+                <button class="btn btn-sm btn-primary">
+            <span class="fa fa-search"></span> Pencarian
+          </button>
+        </div>
+      </section>
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="no">No</th>
+                        <th>No. Dpat</th>
+                        <th>No. BAPB</th>
+                        <th>Supplier</th>
+                        <th>Ka.Logistik</th>
+                        <th style="width: 60px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of tableData; let i = index">
+                            <td class="text-right">{{i + dpatService.offset + 1}}</td>
+                            <td>{{row.noDpat}}</td>
+                            <td>{{row.bapb}}</td>
+                            <td>{{row.namaSupplier}}</td>
+                            <td [ngSwitch]="row.status">
+                                    <span *ngSwitchCase="'1'" class="label label-success">approved</span>
+                                    <span *ngSwitchCase="'rejected'" class="label label-danger">rejected</span>
+                                    <span *ngSwitchCase="'pending'" class="label label-warning">pending</span>
+                                  </td>
+                            <td>
+                              <button class="btn btn-xs btn-default" [routerLink]="[row.dpatId]">Detail</button>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

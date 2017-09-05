@@ -1,0 +1,26 @@
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="header">FPF</li>
+      <li><a routerLink="/fpf/dashboard" routerLinkActive="active"><i class="fa fa-dashboard text-blue"></i><span>Dashboard</span></a>
+      <li><a routerLink="/fpf/dii" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>DII</span></a>
+      <li><a routerLink="/fpf/bppat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BPPAT</span></a>
+      <li><a routerLink="/fpf/bpat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BPAT</span></a>
+      <li><a routerLink="/fpf/babh" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BABH</span></a>
+    </ul>
+  </section>
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Footer -->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Version</b> {{appVersion}}
+  </div>
+  <strong>2017 &copy; PT. Len Industri</strong>
+</footer>

@@ -1,0 +1,194 @@
+<section class="content-header">
+  <h1>Bukti Peminjaman dan Pengembalian Aktiva Tetap
+    <small>Detail</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" routerLink="../">
+      <span class="fa fa-arrow-left"></span> Kembali
+    </button>
+    <button class="btn btn-sm btn-default" (click)="onBtnCetakClick()">
+      <span class="fa fa-print"></span> Cetak
+    </button>
+    <button class="btn btn-sm btn-warning" routerLink="./edit">
+      <span class="fa fa-edit"></span> Ubah
+    </button>
+    <button class="btn btn-sm btn-primary" routerLink="./pengembalian">
+      <span class="fa fa-download"></span> Pengembalian
+    </button>
+  </div>
+</section>
+
+<div class="creator no-print">
+  Dibuat oleh {{bppat.namaFpfPeminjam}} pada {{bppat.createdDate | mydate}}
+</div>
+
+<section class="content" style="max-width: 595cm;">
+  <div class="box box-primary detail">
+    <div class="box-header">
+      <img class="document-logo" src="assets/images/headerDokumen.png"/>
+      PT. Len Industri (Persero)
+      <div class="document-code">VFR-005</div>
+    </div>
+    <div class="box-body">
+      <h4 class="text-center text-uppercase"><b>Bukti Peminjaman dan Pengembalian Aktiva Tetap (BPPAT)</b></h4>
+      <dl class="dl-horizontal">
+        <dt>No. BPPAT :</dt>
+        <dd>{{bppat.noBppat}}</dd>
+        <dt>Nama Kegiatan :</dt>
+        <dd>{{bppat.namaKegiatan}}</dd>
+        <dt>Kode Kegiatan :</dt>
+        <dd>{{bppat.kodeKegiatan}}</dd>
+        <dt>Kebutuhan :</dt>
+        <dd>{{bppat.kebutuhan}}</dd>
+        <dt>Unit Kerja :</dt>
+        <dd>{{bppat.namaUnitKerjaPemberi}}</dd>
+        <dt>Rencana Kembali :</dt>
+        <dd>{{bppat.rencanaKembali | mydate}}</dd>
+      </dl>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 40px;" rowspan="2">No.</th>
+            <th rowspan="2">Nama Aktiva Tetap/ Merk/ Tipe/ No. Seri</th>
+            <th rowspan="2">No. Inventaris</th>
+            <th colspan="2" class="text-center">Kondisi</th>
+          </tr>
+          <tr>
+            <th>Pinjam</th>
+            <th>Kembali</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of bppat?.bppatDetail; let i = index">
+            <td class="text-right">{{i + 1}}</td>
+            <td>{{row.namaAktivaTetap}}/ {{row.namaMerk}}/ {{row.namaTipe}}/ {{row.noSeri}}</td>
+            <td>
+              <a data-toggle="modal" data-target=".detail-at" (click)="onNoInventarisClick(row.diiId)">
+                {{row.noInventaris}}
+              </a>
+            </td>
+            <td style="width: 60px" class="text-center">{{row.kondisiPinjam}}</td>
+            <td style="width: 60px" class="text-center">{{row.kondisiKembali}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered approval">
+        <tr>
+          <td rowspan="2">
+            <b>PEMINJAMAN</b><br/>
+            Tanggal: {{bppat?.tanggalPeminjaman | date:"dd-MM-yyyy"}}<br/><br/>
+            Keamanan *)
+            <br/><br/><br/><br/>
+            ________________<br/>
+            NIK.
+          </td>
+          <td colspan="2" class="text-center">PEMBERI</td>
+          <td colspan="2" class="text-center">PEMINJAM</td>
+        </tr>
+        <tr>
+          <td class="text-center">
+            <b>Disetujui</b><br/>
+            Ka. Unit Kerja<br/>
+            Eselon I<br/>
+            <br/><br/>
+            ________________<br/>
+            <span style="padding-right: 80px;">NIK.</span>
+          </td>
+          <td class="text-center">
+            <b>Diserahkan</b><br/>
+            Ka. Unit<br/>
+            Eselon II<br/>
+            <br/><br/>
+            <u>{{bppat?.namaKaPemberi1}}</u><br/>
+            NIK. {{bppat?.nikKaPemberi1}}
+          </td>
+          <td class="text-center">
+            <b>Disetujui</b><br/>
+            Ka. Unit Kerja<br/>
+            Eselon I<br/>
+            <br/><br/>
+            ________________<br/>
+            <span style="padding-right: 80px;">NIK.</span>
+          </td>
+          <td class="text-center">
+            <b>Diterima</b><br/>
+            Ka. Unit<br/>
+            Eselon II<br/>
+            <br/><br/>
+            <u>{{bppat?.namaKaPeminjam1}}</u><br/>
+            NIK. {{bppat?.nikKaPeminjam1}}
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2">
+            <b>PENGEMBALIAN</b><br/>
+            Tanggal: {{bppat?.tanggalPengembalian | date:"dd-MM-yyyy"}}<br/><br/>
+            Keamanan *)
+            <br/><br/><br/><br/>
+            ______________<br/>
+            NIK.
+          </td>
+          <td colspan="2" class="text-center">PEMBERI</td>
+          <td colspan="2" class="text-center">PEMINJAM</td>
+        </tr>
+        <tr>
+          <td class="text-center">
+            <b>Mengetahui</b><br/>
+            Ka. Unit Kerja<br/>
+            Eselon I<br/>
+            <br/><br/>
+            ________________<br/>
+            <span style="padding-right: 80px;">NIK.</span>
+          </td>
+          <td class="text-center">
+            <b>Diterima</b><br/>
+            Ka. Unit<br/>
+            Eselon II<br/>
+            <br/><br/>
+            <u>{{bppat?.namaKaPemberi2}}</u><span *ngIf="!bppat.namaKaPemberi2">________________</span>
+            <br/>
+            NIK. {{bppat?.nikKaPemberi2}}<span style="padding-right: 80px;" *ngIf="!bppat.nikKaPemberi2"></span>
+          </td>
+          <td class="text-center">
+            <b>Mengetahui</b><br/>
+            Ka. Unit Kerja<br/>
+            Eselon I<br/>
+            <br/><br/>
+            ________________<br/>
+            <span style="padding-right: 80px;">NIK.</span>
+          </td>
+          <td class="text-center">
+            <b>Diserahkan</b><br/>
+            Ka. Unit<br/>
+            Eselon II<br/>
+            <br/><br/>
+            <u>{{bppat?.namaKaPeminjam2}}</u><span *ngIf="!bppat.namaKaPeminjam2">________________</span>
+            <br/>
+            NIK. {{bppat?.nikKaPeminjam2}}<span style="padding-right: 80px;" *ngIf="!bppat.nikKaPeminjam2"></span>
+          </td>
+        </tr>
+      </table>
+      <div style="font-size: x-small;">
+        <br/>*) Apabila keluar Len<br/>
+        <u>Ketentuan peminjaman aktiva tetap</u>
+        <ol type="1" style="padding-left: 0; list-style-position: inside;">
+          <li>Peminjam bertanggung jawab atas kehilangan dan/atau kerusakan aktiva tetap, dengan mengganti sesuai dengan yang dipinjam.</li>
+          <li>Peminjam harus mengembalikan aktiva tetap paling lambat 1 (satu) hari setelah rencana tanggal kembali.</li>
+          <li>Peminjam dilarang meminjamkan aktiva tetap kepada pihak ke-3 tanpa seijin pemilik.</li>
+        </ol>
+      </div>
+      <p>Catatan:</p>
+      <table class="table">
+        <tr>
+          <td>Acc</td>
+          <td>Lembar 1: Pemberi;</td>
+          <td>Lembar 2: Peminjam;</td>
+          <td>Lembar 3: Unit General Affairs</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<modal-detail-at [id]="selectedAt"></modal-detail-at>

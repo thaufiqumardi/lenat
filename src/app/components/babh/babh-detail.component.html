@@ -1,0 +1,84 @@
+<section class="content-header">
+  <h1>Berita Acara Barang Hilang
+    <small>Detail</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" routerLink="../">
+      <span class="fa fa-arrow-left"></span> Kembali
+    </button>
+    <button class="btn btn-sm btn-default" (click)="onBtnCetakClick()">
+      <span class="fa fa-print"></span> Cetak
+    </button>
+  </div>
+</section>
+
+<div class="creator no-print">
+  Dibuat oleh {{babh?.namaFpf}} pada {{babh?.createdDate | date:'dd-MM-yyyy'}}
+</div>
+
+<section class="content" *ngIf="babh!==undefined">
+  <div class="box box-primary detail" id="print-section">
+    <div class="box-header only-print">
+      <img class="document-logo" src="assets/images/headerDokumen.png"/>
+      PT. Len Industri (Persero)
+      <div class="document-code">VFR-009</div>
+    </div>
+    <div class="box-body">
+      <h4 class="document-title">BERITA ACARA BARANG HILANG</h4>
+      <P>
+        Pada hari ini <u>{{setHari(babh?.tanggalBabh)}}</u>
+        tanggal <u>{{babh?.tanggalBabh | date:"dd"}}</u> 
+        bulan <u>{{setBulan(babh?.tanggalBabh)}}</u>
+        tahun <u>{{babh?.tanggalBabh | date:"yyyy"}}</u>
+        telah datang menghadap,
+      </P>
+      <dl class="dl-horizontal">
+        <dt>Nama :</dt>
+        <dd>{{babh?.nama}}</dd>
+        <dt>NIK / KTP :</dt>
+        <dd>{{babh?.nik}}{{babh?.ktp}}</dd>
+        <dt>Alamat :</dt>
+        <dd>{{babh?.alamat}}</dd>
+      </dl>
+      <p>
+        untuk melaporkan kehilangan sebagai berikut: 
+        <u>{{babh?.laporan}}</u><br/>
+        di <u>{{babh?.lokasiHilang}}</u> 
+        pada hari <u>{{setHari(babh.tanggalHilang)}}</u> 
+        tanggal <u>{{babh.tanggalHilang | date:"dd"}}</u>
+        bulan <u>{{setBulan(babh.tanggalHilang)}}</u>
+        tahun <u>{{babh.tanggalHilang | date:"yyyy"}}</u>.
+      </p>
+      <p>
+        Demikian Berita Acara ini dibuat untuk digunakan sebagaimana mestinya.
+      </p>
+      <br/><br/><br/>
+      <table class="table">
+        <tr>
+          <td class="text-center no-border">
+            Menyetujui, <br/>
+            Direksi/ Kepala Unit *)<br/><br/><br/><br/>
+            __________________
+          </td>
+          <td class="text-center no-border">
+            Yang melaporkan, <br/>
+            <br/><br/><br/><br/>
+            <u>{{babh?.nama}}</u><br/>
+            <span *ngIf="babh?.nik" >NIK.</span>
+            {{babh?.nik}}
+            <span *ngIf="babh?.ktp" >KTP.</span>
+            {{babh?.ktp}}
+        </tr>
+      </table>
+      <br/>
+      <p>
+        Keterangan *)<br/>
+        Untuk nilai aktiva ≥ Rp 100 juta ditandatangani oleh direksi<br/>
+        Untuk nilai aktiva < 100 juta ditandatangani oleh Kepala Unit Kerja terkait
+      </p>
+    </div>
+    <div class="overlay" *ngIf="loading">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>

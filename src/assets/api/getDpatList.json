@@ -1,0 +1,67 @@
+{
+    "status": 200,
+    "message": "Success",
+    "data": [
+        {
+            "dpatId": 1,
+            "noDpat": "DPAT/GL/XI/2017",
+            "bapb": "bapb123",
+            "namaSupplier": "Jajat",
+            "tanggalDpat": "2017-05-08",
+            "namaLogistik": "0",
+            "nikLogistik": "44332211",
+            "namaUmum": "0",
+            "nikUmum": "11223344",
+            "status": 1,
+            "dpatDetail": [
+                {
+                    "dpatDetailId": 1,
+                    "noDpat": "DPAT/GL/XI/2017",
+                    "dpatId": 1,
+                    "merk": "T123",
+                    "tipe": "",
+                    "namaBarang": null,
+                    "noSeri": "S123",
+                    "mataAnggaran": "IDR",
+                    "noInventaris": "14A3209/13/157",
+                    "jumlah": 15000000,
+                    "satuan": "LOT",
+                    "hargaBeli": "13000000",
+                    "tanggalBeli": "2017-01-01",
+                    "keterangan": "BAIK"
+                }
+            ]
+        },
+        {
+            "dpatId": 2,
+            "noDpat": "DPAT/GL/XI/2017",
+            "bapb": "bapb7777",
+            "namaSupplier": "Ujeng",
+            "tanggalDpat": "2017-07-07",
+            "namaLogistik": "0",
+            "nikLogistik": "44332211",
+            "namaUmum": "0",
+            "nikUmum": "11223344",
+            "status": 1,
+            "dpatDetail": [
+                {
+                    "dpatDetailId": 2,
+                    "noDpat": "DPAT/GL/XI/2017",
+                    "dpatId": 1,
+                    "merk": "T123",
+                    "tipe": "",
+                    "namaBarang": null,
+                    "noSeri": "S123",
+                    "mataAnggaran": "IDR",
+                    "noInventaris": "14A3209/13/157",
+                    "jumlah": 15000000,
+                    "satuan": "LOT",
+                    "hargaBeli": "13000000",
+                    "tanggalBeli": "2017-01-01",
+                    "keterangan": "BAIK"
+                }
+            ]
+        }
+    ],
+    "total": 1
+}

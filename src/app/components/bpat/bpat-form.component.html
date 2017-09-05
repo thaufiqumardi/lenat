@@ -1,0 +1,220 @@
+<section class="content-header">
+  <h1>Bukti Penyerahan Aktiva Tetap
+    <small>Tambah Baru</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" routerLink="../">
+      <span class="fa fa-close"></span> Batal
+    </button>
+    <button class="btn btn-sm btn-primary" (click)="onBtnKirimClick()" [disabled]="!formBpat.form.valid">
+      <span class="fa fa-send"></span> Kirim
+    </button>
+  </div>
+</section>
+
+<section class="content ">
+  <div class="row">
+    <form class="form-horizontal" #formBpat="ngForm">
+      <div class="col-sm-6 ">
+        <div class="box box-primary">
+          <div class="box-body">
+            <div class="form-group">
+              <label class="control-label col-sm-4">No. BPAT</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="noBpat" readonly required [ngModel]="bpat.noBpat" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4">Tanggal BPAT</label>
+              <div class="col-sm-8">
+                <my-date-picker name="tanggalBpat" required
+                                [ngModel]="dpTanggalBpat"
+                                [options]="appServ.getDpOptions()"
+                                (dateChanged)="onTanggalBpatChanged($event)">
+                </my-date-picker>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4">Lokasi/ Nomor Ruang</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="lokasiNomorRuang" required [(ngModel)]="bpat.lokasiNomorRuangan" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4">Penanggung Jawab</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="penanggungJawab" required [(ngModel)]="bpat.penanggungJawab" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4">Unit Kerja</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="unitKerja" required readonly [ngModel]="bpat.namaUnitKerjaPemberi" />
+              </div>
+            </div>
+          </div>
+          <div class="overlay" *ngIf="loadingBox1">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 ">
+        <div class="box box-primary">
+          <div class="box-header">
+            <h4 class="box-title">FPF Penerima Aktiva Tetap</h4>
+          </div>
+          <div class="box-body">
+            <div class="form-group">
+              <label class="control-label col-sm-4">NIK</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="nikFpfPenerima" placeholder="Cari berdasarkan NIK" required [ngModel]="bpat.nikFpfPenerima" #nikPenerima />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" (click)="onBtnSearchNikClick(nikPenerima.value)"><span class="fa fa-search"></span></button>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" [class.hide]="!bpat.nikFpfPenerima">
+              <label class="control-label col-sm-4">Nama</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="namaFpfPenerima" required readonly [ngModel]="bpat.namaFpfPenerima" />
+              </div>
+            </div>
+            <div class="form-group" [class.hide]="!bpat.nikFpfPenerima">
+              <label class="control-label col-sm-4">Unit Kerja</label>
+              <div class="col-sm-8">
+                <select name="unitKerjaPenerima" class="form-control" required [ngModel]="bpat.unitKerjaIdPenerima" (change)="onUkPenerimaChange($event.target.value)">
+                  <option *ngFor="let uk of optUnitKerjaPenerima; let i = index" value="{{uk.unitKerjaId}}">
+                    {{uk.namaUnitKerja}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" [class.hide]="!bpat.nikFpfPenerima">
+              <label class="control-label col-sm-4">Kepala</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" name="kepalaFpfPenerima" required readonly [ngModel]="bpat.namaKaPenerima" />
+              </div>
+            </div>
+          </div>
+          <div class="overlay" *ngIf="loadingBox2">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="box box-primary">
+    <div class="box-header">
+      <h4 class="box-title">Aktiva Tetap FPF Pemberi
+        <small>(Pilih barang yang akan diserahkan)</small>
+      </h4>
+    </div>
+    <div class="box-body table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th class="no"></th>
+            <th>Nama Aktiva Tetap</th>
+            <th>Merk</th>
+            <th>Tipe</th>
+            <th>No. Seri</th>
+            <th>No. Inventaris</th>
+            <th class="text-center">Kondisi</th>
+            <th>Keterangan *</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData; let i = index" (click)="onRowClick(row, $event)" [class.info]="row.selected">
+            <td>
+              <input type="checkbox" name="checkbox" [checked]="row.selected" />
+            </td>
+            <td>{{row.namaAktivaTetap}}</td>
+            <td>{{row.namaMerk}}</td>
+            <td>{{row.namaTipe}}</td>
+            <td>{{row.noSeri}}</td>
+            <td>{{row.noInventaris}}</td>
+            <td class="text-center" [innerHTML]="row.kondisi | labelkondisi"></td>
+            <td class="input-cell">
+              <input type="text" name="keterangan" style="width: 100%;" [(ngModel)]="row.keterangan" [hidden]="!row.selected" />
+            </td>
+          </tr>
+        </tbody>
+      </table><br/>
+      <b>*) Keterangan:</b> Perlakuan (kalibrasi, mutasi, perbaikan, analisa, solusi, dll).
+    </div>
+    <div class="box-footer">
+      Total selected: <b>{{totalSelected}}</b>
+      <pagination [totalRows]="allAtData.length" (offset)="onPaginationClick($event)">Pagination</pagination>
+    </div>
+    <div class="overlay" *ngIf="loadingBox3">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+
+  <!--div class="box box-primary">
+    <fpf-at-list  [fpfId]="activeUser.userId" 
+                  [unitKerjaId]="activeRole.unitKerjaId" 
+                  [selectedAt]="bpat.bpatDetail" 
+                  (newSelectedAt)="setSelectedAt($event)">
+    </fpf-at-list>
+  </div-->
+  
+  <!--div class="row">
+    <div class="col-sm-3">
+      <div class="box box-default">
+        <div class="box-header">
+          <h3 class="box-title">Mengetahui</h3>
+        </div>
+        <div class="box-body">
+          Ka. Unit General Affairs<br/>
+          Nama Kepala Unit<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-warning">
+        <div class="box-header">
+          <h3 class="box-title">Diterima oleh</h3>
+          <div class="box-tools pull-right">
+            <span class="label label-warning">Pending</span>
+          </div>
+        </div>
+        <div class="box-body">
+          Ka. ..............<br/>
+          Nama kepala penerima<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-warning">
+        <div class="box-header">
+          <h3 class="box-title">Diserahkan oleh</h3>
+          <div class="box-tools pull-right">
+            <span class="label label-warning">Pending</span>
+          </div>
+        </div>
+        <div class="box-body">
+          Ka. {{bpat.namaUnitKerjaPemberi}}<br/>
+          {{bpat.namaKaPemberi}}<br/>
+          NIK. {{bpat.nikKaPemberi}}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-default">
+        <div class="box-header">
+          <h3 class="box-title">Disiapkan oleh</h3>
+        </div>
+        <div class="box-body">
+          Pemelihara Fasilitas<br/>
+          {{bpat.namaFpfPemberi}}<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+  </div-->
+</section>

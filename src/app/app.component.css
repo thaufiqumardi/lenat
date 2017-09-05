@@ -1,0 +1,41 @@
+/* Navbar */
+.navbar-header {
+    background: url('../assets/images/logoLen.png') no-repeat;
+    background-size: 35px; 
+    background-position: 12px center;
+}
+.navbar-brand {
+    margin-left: 40px;
+}
+.navbar-text {
+    color: white;
+    margin: 15px;
+}
+#ul-role li i {
+    width: 13px;
+}
+#ul-role a.active i::before {
+    content: "\F00C";
+}
+
+/* btn-signout */
+.btn-signout {
+    background-color: darkred !important;
+    cursor: pointer;
+}
+.btn-signout:hover {
+    background-color: maroon !important;
+}
+.btn-signout div {
+    width: 12px;
+    overflow: hidden; 
+    white-space: nowrap;
+    /* transition */
+    -webkit-transition: width 0.4s;
+    -moz-transition: width 0.4s;
+    -o-transition: width 0.4s;
+    transition: width 0.4s;
+}
+.btn-signout:hover div {
+    width: 70px;
+}

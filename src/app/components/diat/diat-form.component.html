@@ -1,0 +1,166 @@
+<section class="content-header">
+  <h1>Daftar Inventaris Aktiva Tetap
+    <small>Tambah Baru</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" routerLink="../">
+      <span class="fa fa-close"></span> Batal
+    </button>
+    <button class="btn btn-sm btn-primary" (click)="onBtnKirimClick()" [disabled]="!formDiat.form.valid">
+      <span class="fa fa-send"></span> Kirim
+    </button>
+  </div>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-body row">
+      <form class="form-horizontal col-sm-6" #formDiat="ngForm">
+        <div class="form-group">
+          <label class="control-label col-sm-4">Periode</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="periode" required readonly [ngModel]="diat.periode" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Lokasi/ Nomor Ruangan</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="lokasiNomorRuangan" required [(ngModel)]="diat.lokasiNomorRuangan" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Penanggung Jawab</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="penanggungJawab" required [(ngModel)]="diat.penanggungJawab" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Unit Kerja</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="unitKerja" required readonly [ngModel]="diat.namaUnitKerja" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="box-body table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th class="no"></th>
+            <th>Nama Aktiva Tetap</th>
+            <th>Merk</th>
+            <th>Tipe</th>
+            <th>No. Seri</th>
+            <th>No. Inventaris</th>
+            <th>Kondisi</th>
+            <th>Status</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData; let i = index" (click)="onRowClick(row, $event)" [class.info]="row.selected">
+            <td>
+              <input type="checkbox" name="checkbox" [checked]="row.selected" />
+            </td>
+            <td>{{row.namaAktivaTetap}}</td>
+            <td>{{row.namaMerk}}</td>
+            <td>{{row.namaTipe}}</td>
+            <td>{{row.noSeri}}</td>
+            <td>{{row.noInventaris}}</td>
+            <td>
+              <span *ngIf="!row.selected" [innerHTML]="row.kondisi | labelkondisi"></span>
+              <span *ngIf="row.selected">
+                <select name="kondisi{{row.diiId}}" [(ngModel)]="row.kondisi">
+                  <option value="BP" title="Baik Dipakai">BP</option>
+                  <option value="RB" title="Rusak Berat">RB</option>
+                  <option value="RR" title="Rusak Ringan">RR</option>
+                  <option value="BT" title="Baik Tidak Dipakai">BT</option>
+                </select>
+              </span>
+            </td>
+            <td>{{row.status}}</td>
+            <td class="input-cell">
+              <span *ngIf="!row.selected">
+                {{row.keterangan}}
+              </span>
+              <input type="text" name="keterangan" style="width: 100%;" [(ngModel)]="row.keterangan" [hidden]="!row.selected" />
+            </td>
+          </tr>
+        </tbody>
+      </table><br/>
+      <b>*) Keterangan:</b> Perlakuan (kalibrasi, mutasi, perbaikan, analisa, solusi, dll).
+    </div>
+    <div class="box-footer">
+      Total selected: <b>{{totalSelected}}</b>
+      <pagination [totalRows]="allAtData.length" (offset)="onPaginationClick($event)">Pagination</pagination>
+    </div>
+    <div class="overlay" *ngIf="loadingBox3">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+
+  <!--div class="box box-primary">
+    <fpf-at-list  [fpfId]="activeUser.userId" 
+                  [unitKerjaId]="activeRole.unitKerjaId" 
+                  [selectedAt]="bpat.bpatDetail" 
+                  (newSelectedAt)="setSelectedAt($event)">
+    </fpf-at-list>
+  </div-->
+
+  <!--div class="row">
+    <div class="col-sm-3">
+      <div class="box box-default">
+        <div class="box-header">
+          <h3 class="box-title">Mengetahui</h3>
+        </div>
+        <div class="box-body">
+          Ka. Unit General Affairs<br/>
+          Nama Kepala Unit<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-warning">
+        <div class="box-header">
+          <h3 class="box-title">Diterima oleh</h3>
+          <div class="box-tools pull-right">
+            <span class="label label-warning">Pending</span>
+          </div>
+        </div>
+        <div class="box-body">
+          Ka. ..............<br/>
+          Nama kepala penerima<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-warning">
+        <div class="box-header">
+          <h3 class="box-title">Diserahkan oleh</h3>
+          <div class="box-tools pull-right">
+            <span class="label label-warning">Pending</span>
+          </div>
+        </div>
+        <div class="box-body">
+          Ka. {{bpat.namaUnitKerjaPemberi}}<br/>
+          {{bpat.namaKaPemberi}}<br/>
+          NIK. {{bpat.nikKaPemberi}}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="box box-default">
+        <div class="box-header">
+          <h3 class="box-title">Disiapkan oleh</h3>
+        </div>
+        <div class="box-body">
+          Pemelihara Fasilitas<br/>
+          {{bpat.namaFpfPemberi}}<br/>
+          NIK. 1234567
+        </div>
+      </div>
+    </div>
+  </div-->
+</section>

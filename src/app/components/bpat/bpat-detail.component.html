@@ -1,0 +1,123 @@
+<section class="content-header">
+  <h1>Bukti Penyerahan Aktiva Tetap
+    <small>Detail</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" [routerLink]="['../']">
+      <span class="fa fa-arrow-left"></span> Kembali
+    </button>
+    <button class="btn btn-sm btn-default" (click)="onBtnCetakClick()">
+      <span class="fa fa-print"></span> Cetak
+    </button>
+    <a class="btn btn-sm btn-warning" routerLink="./edit" *ngIf="allowEdit">
+      <span class="fa fa-edit"></span> Ubah
+    </a>
+  </div>
+</section>
+
+<div class="creator hidden-print">
+  Dibuat oleh {{bpat.namaFPFPemberi}} pada {{bpat.createdDate | mydate}}
+</div>
+
+<section class="content">
+  <div class="box box-primary detail">
+    <div class="box-body">
+      <h4 class="text-center text-bold">BUKTI PENYERAHAN AKTIVA TETAP (BPAT)</h4>
+      <dl class="dl-horizontal">
+        <dt>Tanggal Penyerahan :</dt>
+        <dd>{{bpat.tanggalBpat | mydate}}</dd>
+        <dt>Lokasi/Nomor Ruangan :</dt>
+        <dd>{{bpat.lokasiNomorRuangan}}</dd>
+        <dt>Penanggung Jawab :</dt>
+        <dd>{{bpat.penanggungJawab}}</dd>
+        <dt>Unit Kerja :</dt>
+        <dd>{{bpat.kodeUnitKerjaPemberi}} {{bpat.namaUnitKerjaPemberi}}</dd>
+      </dl>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nama Aktiva Tetap</th>
+            <th>Merk</th>
+            <th>Tipe</th>
+            <th>No. Seri</th>
+            <th>No. Inv. Lama</th>
+            <th>No. Inv. Baru</th>
+            <th>Kondisi</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of bpat?.bpatDetail; let i = index">
+            <td class="text-right">{{i + 1}}</td>
+            <td>{{row.namaAktivaTetap}}</td>
+            <td>{{row.namaMerk}}</td>
+            <td>{{row.namaTipe}}</td>
+            <td>{{row.noSeri}}</td>
+            <td>{{row.noInventaris1}}</td>
+            <td>{{row.noInventaris}}</td>
+            <td>{{row.kondisi}}</td>
+            <td>{{row.keterangan}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br/>
+      <p class="text-sm">
+        <b>Kondisi</b>:
+        <b>BP</b> = Baik Dipakai;
+        <b>RB</b> = Rusak Berat;
+        <b>RR</b> = Rusak Ringan;
+        <b>BT</b> = Baik Tidak Dipakai.
+        <br/>
+        <b>Keterangan</b>:
+        Perlakuan (kalibrasi, mutasi, perbaikan, analisa, solusi, dll).
+      </p>
+
+      <table class="table">
+        <tr>
+          <td class="text-center no-border">
+            <b>Mengetahui,</b><br/>
+            Ka. Unit General Affairs<br/><br/><br/><br/>
+            <u>Nama</u><br/>
+            NIK.
+          </td>
+          <td class="text-center no-border">
+            <b>Diterima oleh,</b><br/>
+            Ka. {{bpat.namaUnitKerjaPenerima}} <br/><br/>
+            <span class="hidden-print" *ngIf="bpat" [innerHTML]="bpat.apprKaPenerima | approval"></span><br/><br/>
+            <u>{{bpat.namaKaPenerima}}</u><br/>
+            NIK. {{bpat.nikKaPenerima}}
+          </td>
+          <td class="text-center no-border">
+            <b>Diserahkan oleh,</b><br/>
+            Ka. {{bpat.namaUnitKerjaPemberi}}<br/><br/>
+            <span class="hidden-print" *ngIf="bpat" [innerHTML]="bpat.apprKaPemberi | approval"></span><br/><br/>
+            <u>{{bpat.namaKaPemberi}}</u><br/>
+            NIK. {{bpat.nikKaPemberi}}
+          </td>
+          <td class="text-center no-border">
+            <b>Disiapkan oleh,</b><br/>
+            Pemelihara Fasilitas<br/><br/><br/><br/>
+            <u>{{bpat.namaFPFPemberi}}</u><br/>
+            NIK. {{bpat.nikFPFPemberi}}
+          </td>
+        </tr>
+      </table>
+
+      <br/>
+      <table class="table visible-print">
+        <tr>
+          <td>Acc:</td>
+          <td>Lembar 1: Unit yang menyerahkan;</td>
+          <td>Lembar 2: Unit General Affairs;</td>
+          <td>Lembar 3: Unit Akuntansi.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="overlay" *ngIf="prosessing">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>

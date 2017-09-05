@@ -1,0 +1,57 @@
+{
+  "status": "",
+  "data": [
+    {
+      "bpatId": 2,
+      "noBpat": "002/GL/APAT/07/17",
+      "tanggalBpat": "2017-08-13",
+      "lokasiNomorRuangan": "Gedung A Lantai 2 Ruang Pengadaan",
+      "penanggungJawab": "Kunto Sukmana",
+      "unitKerjaIdPemberi": 13,
+      "namaUnitKerjaPemberi": "Logistik",
+	  "fpfIdPemberi": 3,
+	  "fpfIdPenerima": 5,
+      "nikFpfPemberi": "0611U068",
+      "nikFpfPenerima": "0865T987",
+      "namaFpfPemberi": "Jajat Ismail",
+      "namaFpfPenerima": "Sukma Ayu Ningsih",
+	  "kaIdPemeri": 32,
+	  "kaIdPenerima": 94,
+      "nikKaPemberi": "0760A875",
+      "nikKaPenerima": "7862A762",
+      "namaKaPemberi": "Santi Nurdianti",
+      "namaKaPenerima": "Ujang Saepudin",
+      "apprKaPemberi": 0,
+      "apprKaPenerima": 2,
+      "unitKerjaIdPenerima": 7,
+      "namaUnitKerjaPenerima": "Koperasi",
+      "bpatDetail": [
+        {
+          "bpatId": 2,
+		  "diiId": 1,
+		  "namaAktivaTetap": "Printer Laser",
+          "namaMerk": "Epson",
+          "namaTipe": "KZ-762HA",
+          "noSeri": "0987667524712",
+          "noInvLama": "87928727126",
+          "noInvBaru": "B16AB877692-17",
+          "kondisi": "BP",
+          "keterangan": "Mutasi"
+        },
+        {
+          "diiId": 2,
+		  "namaBarang": "Meja Kotak",
+          "merkId": 32,
+          "namaMerk": "Srikandi",
+          "tipeId": 1,
+          "namaTipe": "QW876",
+          "noSeri": "-",
+          "noInvLama": "7656525572",
+          "noInvBaru": "A82HG287342-17",
+          "kondisi": "BP",
+          "keterangan": "Mutasi"
+        }
+      ]
+    }
+  ]
+}

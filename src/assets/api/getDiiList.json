@@ -1,0 +1,61 @@
+{
+  "status": "",
+  "total": 5,
+  "data": [
+    {
+      "diiId": "5",
+      "noBapb": "BA200800375",
+      "namaBarang": "Kursi Lipat",
+      "namaMerk": "Chitose",
+      "namaTipe": "",
+      "noSeri": "",
+      "noInventaris": "32A14/11/170",
+      "kondisi": "BP",
+      "keterangan": ""
+    },
+    {
+      "diiId": "4",
+      "noBapb": "BA200800375",
+      "namaBarang": "Kursi Putar",
+      "namaMerk": "Informa",
+      "namaTipe": "",
+      "noSeri": "",
+      "noInventaris": "32A1504/11/031",
+      "kondisi": "BP",
+      "keterangan": ""
+    },
+    {
+      "diiId": "3",
+      "noBapb": "BA200800375",
+      "namaBarang": "Laci Dorong",
+      "namaMerk": "",
+      "namaTipe": "",
+      "noSeri": "",
+      "noInventaris": "32A10500/14/100",
+      "kondisi": "BP",
+      "keterangan": ""
+    },
+    {
+      "diiId": "2",
+      "noBapb": "BA200800375",
+      "namaBarang": "Meja Tulis",
+      "namaMerk": "Arindah",
+      "namaTipe": "1/2 Biro",
+      "noSeri": "",
+      "noInventaris": "32A69/11/081",
+      "kondisi": "BT",
+      "keterangan": ""
+    },
+    {
+      "diiId": "1",
+      "noBapb": "BA200800375",
+      "namaBarang": "Lemari Arsip",
+      "namaMerk": "Lion",
+      "namaTipe": "2 pintu",
+      "noSeri": "",
+      "noInventaris": "31D1201/11/338",
+      "kondisi": "RR",
+      "keterangan": ""
+    }
+  ]
+}

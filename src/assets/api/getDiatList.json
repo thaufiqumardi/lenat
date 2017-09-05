@@ -1,0 +1,42 @@
+{
+  "status": 200,
+  "total": 320,
+  "data": [
+    {
+      "diatId": 1,
+      "createdDate": "2017-08-27",
+      "periode": "",
+      "lokasiNomorRuangan": "05. HCGA/GA/Gd. A Lt.1/R. Tamu",
+      "penanggungJawab": "Surya Saputra",
+      "unitKerjaId": 223,
+      "kodeUnitKerja": "LV",
+      "namaUnitKerja": "Divisi Investasi & Manajemen Risiko",
+      "userIdKaUnitKerja": 5,
+      "nikKaUnitKerja": "7653873",
+      "namaKaUnitKerja": "Surya Saputra",
+      "apprKaUnitKerja": "0",
+      "userIdFpf": 1,
+      "nikFpf": "1234567",
+      "namaFpf": "Jajat Ismail",
+      "diatStatusId": "1"
+    },
+    {
+      "diatId": 2,
+      "createdDate": "2017-08-27",
+      "periode": "",
+      "lokasiNomorRuangan": "09. LOG/R. KaDiv./Gd.D Lt.1",
+      "penanggungJawab": "Indah Permadani",
+      "unitKerjaId": 260,
+      "kodeUnitKerja": "LE-1",
+      "namaUnitKerja": "Bagian Pemasaran & Penjualan UB. Energi & Produk Ritel",
+      "userIdKaUnitKerja": 65,
+      "nikKaUnitKerja": "8763463",
+      "namaKaUnitKerja": "Putra Raden Kusuma",
+      "apprKaUnitKerja": "1",
+      "userIdFpf": 1,
+      "nikFpf": "1234567",
+      "namaFpf": "Jajat Ismail",
+      "diatStatusId": "1"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu" *ngIf="roleId==1">
+      <li class="header">FPF</li>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-dashboard text-blue"></i><span>Dashboard</span></a></li>
+      <li><a routerLink="/dii" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>DII</span></a></li>
+      <li><a routerLink="/diat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>DIAT</span></a></li>
+      <li><a routerLink="/bppat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BPPAT</span></a></li>
+      <li><a routerLink="/bpat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BPAT</span></a></li>
+      <li><a routerLink="/babh" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BABH</span></a></li>
+    </ul>
+    <ul class="sidebar-menu" *ngIf="roleId==3">
+      <li class="header">Admin GA</li>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-dashboard text-blue"></i><span>Dashboard</span></a></li>
+      <li><a routerLink="/babh" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>BABH</span></a></li>
+    </ul>
+    <ul class="sidebar-menu" *ngIf="roleId==5">
+      <li class="header">Logistik</li>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-dashboard text-blue"></i><span>Dashboard</span></a></li>
+      <li><a routerLink="/dpat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>DPAT</span></a></li>
+      <li><a routerLink="/nondpat" routerLinkActive="active"><i class="fa fa-folder text-blue"></i><span>Non-DPAT</span></a></li>
+    </ul>
+  </section>
+</aside>

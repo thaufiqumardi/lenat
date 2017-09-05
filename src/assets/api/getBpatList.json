@@ -1,0 +1,28 @@
+{
+  "status": "",
+  "total": 2,
+  "data": [
+    {
+      "bpatId": 1,
+      "noBpat": "001/GL/BPAT/06/17",
+      "namaLokasi": "Len Bandung",
+      "penanggungJawab": "Ridwan Kamil",
+      "namaUnitKerjaPemberi": "Sisfo",
+      "namaFpfPemberi": "Jajat Ismail",
+      "namaFpfPenerima": "Sulaeman Ilyas",
+      "apprKaPemberi": 1,
+      "apprKaPenerima": 0
+    },
+    {
+      "bpatId": 2,
+      "noBpat": "002/GL/BPAT/06/17",
+      "namaLokasi": "Len Subang",
+      "penanggungJawab": "Kunto Sukmana",
+      "namaUnitKerjaPemberi": "Logistik",
+      "namaFpfPemberi": "Jajat Ismail",
+      "namaFpfPenerima": "Sukma Ayu Ningsih",
+      "apprKaPemberi": 0,
+      "apprKaPenerima": 2
+    }
+  ]
+}

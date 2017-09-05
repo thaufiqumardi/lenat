@@ -1,0 +1,54 @@
+<section class="content-header">
+  <h1>Daftar Induk Inventaris</h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-primary">
+      <span class="fa fa-search"></span> Pencarian
+    </button>
+  </div>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="no">No.</th>
+            <th>No. BAPB</th>
+            <th>Nama Aktva Tetap</th>
+            <th>Merk</th>
+            <th>Tipe</th>
+            <th>No. Seri</th>
+            <th>No. Inventaris</th>
+            <th class="text-center">Kondisi</th>
+            <th style="width: 60px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData; let i = index">
+            <td class="text-right">{{i + diiService.tableOffset + 1}}</td>
+            <td [title]="row.noBapb">{{row.noBapb}}</td>
+            <td [title]="row.namaBarang">{{row.namaBarang}}</td>
+            <td [title]="row.namaMerk">{{row.namaMerk}}</td>
+            <td [title]="row.namaTipe">{{row.namaTipe}}</td>
+            <td [title]="row.noSeri">{{row.noSeri}}</td>
+            <td [title]="row.noInventaris1">{{row.noInventaris1}}</td>
+            <td class="text-center" [innerHTML]="row.kondisi | labelkondisi"></td>
+            <td>
+              <button class="btn btn-xs btn-default" data-toggle="modal" data-target=".detail-at" (click)="onBtnDetailClick(row.diiId)">Detail</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-footer">
+      <label><input type="checkbox" /> Tampilkan Semua Aktiva Tetap</label>
+      <pagination [totalRows]="totalRows" [offset]="diiService.tableOffset" (offset)="onPaginationClick($event)">Pagination</pagination>
+    </div>
+    <div class="overlay" *ngIf="loadingTable">
+      <i class="fa fa-refresh fa-spin"></i>
+    </div>
+  </div>
+</section>
+
+<modal-detail-at [id]="selectedAt"></modal-detail-at>

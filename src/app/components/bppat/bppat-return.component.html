@@ -1,0 +1,98 @@
+<section class="content-header">
+  <h1>Bukti Peminjaman dan Pengembalian Aktiva Tetap
+    <small>Pengembalian</small>
+  </h1>
+  <div class="header-btn">
+    <button class="btn btn-sm btn-default" routerLink="../">
+      <span class="fa fa-close"></span> Batal
+    </button>
+    <button class="btn btn-sm btn-primary" [disabled]="!formBppat.form.valid" (click)="onBtnKirimClick()">
+      <span class="fa fa-send"></span> Kirim
+    </button>
+  </div>
+</section>
+<div class="clearfix"></div>
+
+<section class="content">
+  <form #formBppat="ngForm">
+  <div class="box box-primary">
+    <div class="box-body row">
+      <div class="col-sm-6">
+        <dl class="dl-horizontal no-margin">
+          <dt>No. BPPAT :</dt>
+          <dd>{{bppat.noBppat}}</dd>
+          <dt>Nama Kegiatan :</dt>
+          <dd>{{bppat.namaKegiatan}}</dd>
+          <dt>Kode Kegiatan :</dt>
+          <dd>{{bppat.kodeKegiatan}}</dd>
+          <dt>Kebutuhan :</dt>
+          <dd>{{bppat.kebutuhan}}</dd>
+          <dt>Unit Kerja :</dt>
+          <dd>{{bppat.namaUnitKerjaPemberi}}</dd>
+        </dl>
+      </div>
+      <div class="col-sm-6 form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-6 col-md-5">Rencana Kembali :</label>
+          <div class="col-sm-6 col-md-7 form-control-static">
+            {{bppat.rencanaKembali | date:"dd MMM yyyy"}}
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="control-label col-sm-6 col-md-5">Tanggal Pengembalian :</label>
+          <div class="col-sm-6 col-md-7">
+            <my-date-picker name="tanggalPengembalian" required
+                            [ngModel]="dpTanggalPengembalian"
+                            [options]="appService.getDpOptions()"
+                            (dateChanged)="onTanggalPengembalianChanged($event)">
+            </my-date-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-body table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th rowspan="2" class="no">No.</th>
+            <th rowspan="2">Nama Aktiva/ Merk/ Tipe/ No. Seri</th>
+            <th rowspan="2">No. Inventaris</th>
+            <th colspan="2" class="text-center">Kondisi</th>
+          </tr>
+          <tr>
+            <th class="text-center">Pinjam</th>
+            <th class="text-center">Kembali</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of bppat.bppatDetail; let i = index">
+            <td class="text-right">{{i + 1}}</td>
+            <td>{{row.namaBarang}}/ {{row.namaMerk}}/ {{row.namaTipe}}/ {{row.noSeri}}</td>
+            <td>{{row.noInventaris}}</td>
+            <td style="width: 60px" class="text-center" [innerHTML]="row.kondisiPinjam | labelkondisi"></td>
+            <td style="width: 60px" class="text-center">
+              <select name="kondisiKembali{{row.diiId}}" required [(ngModel)]="row.kondisiKembali">
+                <option value="BP" title="Baik Dipakai">BP</option>
+                <option value="RB" title="Rusak Berat">RB</option>
+                <option value="RR" title="Rusak Ringan">RR</option>
+                <option value="BT" title="Baik Tidak Dipakai">BT</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </form>
+
+  <div class="panel">
+    <div class="panel-body bg-info">
+      <b>Kondisi:</b> 
+      <b>BP</b> = Baik Dipakai; 
+      <b>RB</b> = Rusak Berat; 
+      <b>RR</b> = Rusak Ringan; 
+      <b>BT</b> = Baik Tidak Dipakai.
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+{
+  "status": "",
+  "data": [
+    {
+      "unitKerjaId": 230,
+      "kodeUnitKerja": "LP",
+      "namaUnitKerja": "Divisi Produksi",
+      "kepala": [
+        {
+          "userId": 532,
+          "nik": "1234567",
+          "nama": "Rahmat Hakim"
+        }
+      ]
+    }
+  ]
+}

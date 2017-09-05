@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("./assets/plugins/font-awesome/css/font-awesome.min.css");
+
+/* sementara */
+.box-red {
+    border: 1px solid red !important;
+}
+
+/* content */
+body, table, input, .form-control {
+    font-size: 13px !important;
+}
+a {
+    cursor: pointer;
+}
+.box-header .select-tahun {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.content-header h1 {
+    display: inline-block;
+    padding: 2px 0;
+}
+.content-header .header-btn {
+    float: right;
+}
+
+/* Menu */
+.sidebar-menu li a.active {
+  color: #ffffff;
+  background: #1e282c;
+  border-left-color: #3c8dbc;
+}
+
+/* table style */
+.table-striped > tbody > tr:nth-of-type(odd){
+    background-color: #f8f8f8;
+}
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+.table td, .table th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 130px;
+}
+.table.no-ellipsis td, .table.no-ellipsis th {
+    text-overflow: unset;
+    max-width: unset;
+}
+.table .no {
+    width: 30px;
+}
+.table th {
+    vertical-align: middle !important;
+}
+.table select {
+    padding: 1px 0; 
+    min-height: 24px;
+}
+div.no-padding .table-bordered,
+div.no-padding .table-bordered tr th:first-child,
+div.no-padding .table-bordered tr th:last-child,
+div.no-padding .table-bordered tr td:first-child,
+div.no-padding .table-bordered tr td:last-child {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+
+/* ng2-select */
+span.btn-default {
+    background-color: #fff;
+}
+
+/* form */
+input.ng-invalid, 
+input.ng-invalid:focus,
+select.ng-invalid, 
+select.ng-invalid:focus,
+textarea.ng-invalid, 
+textarea.ng-invalid:focus,
+my-date-picker.ng-invalid .mydp {
+    border-left: 5px solid #d73925;
+}
+textarea {
+    resize: vertical;
+}
+
+/* Detail */
+.detail .document-logo {
+    height: 50px;
+    float: left;
+}
+.detail .document-code {
+    padding: 5px; 
+    border: 1px solid black; 
+    float: right;
+}
+.detail h4.document-title {
+    text-align: center;
+    font-weight: bold;
+}
+.detail td,
+.detail th {
+    text-overflow: clip;
+    white-space: normal;
+    max-width: 100%;
+}
+.creator {
+    margin: 0 15px;
+    color: gray;
+}
+
+@media print {
+    body, table {
+        font-size: 11pt;
+    }
+
+    .only-print {
+        display: unset;
+    }
+
+    .main-footer, 
+    .no-print {
+        display: none !important;
+    }
+
+    .box-primary {
+        border: 0;
+    }
+
+    dl dt {
+        display: block;
+        float: left;
+        width: 150px;
+        text-align: right;
+        padding-right: 5px;
+    }
+}
