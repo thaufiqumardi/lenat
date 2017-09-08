@@ -23,6 +23,8 @@ import { BabhDetailComponent } from 'app/components/babh/babh-detail.component';
 import { DpatListComponent } from 'app/components/dpat/dpat-list.component';
 import { DpatDetailComponent } from 'app/components/dpat/dpat-detail.component';
 import { DpatNewComponent } from 'app/components/dpat/dpat-new.component';
+import { DpatPenomoranComponent } from 'app/components/dpat/dpat-penomoran.component';
+
 import { NonDpatComponent } from 'app/components/nondpat/nonDpat-list.component';
 
 import { AuthGuardService } from 'app/services/auth-guard.service';
@@ -88,7 +90,7 @@ const ROUTES: Routes = [
           { path: '', component: DpatListComponent},
           { path: 'new', component: DpatNewComponent},
           { path: ':id', component: DpatDetailComponent},
-          // { path: 'detail', component: DpatDetailComponent}
+          { path: ':id/edit',component:DpatPenomoranComponent }
         ]
       },
       {
@@ -148,6 +150,8 @@ export const Components = [
   DpatListComponent,
   DpatDetailComponent,
   DpatNewComponent,
+
+  DpatPenomoranComponent,
 
   NonDpatComponent,
 

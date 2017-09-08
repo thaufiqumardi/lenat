@@ -1,0 +1,57 @@
+<section class="content-header">
+        <h1>Daftar Penambahan Aktiva Tetap
+          <small>{{subTitle}}</small>
+        </h1>
+        <div class="header-btn">
+          <button class="btn btn-sm btn-default" routerLink="../">
+            <span class="fa fa-close"></span> Batal
+          </button>
+          <button class="btn btn-sm btn-primary">
+            <span class="fa fa-send"></span> Kirim
+          </button>
+        </div>
+      </section>
+      <section class="content">
+          <div class="row">
+              <div class="col-md-6">
+                    <form class="form-horizontal">
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Kelompok Barang</label>
+                                    <div class="col-md-6">
+                                        <select name="unitKerjaPenerima" class="form-control" required [ngModel]="bpat.unitKerjaIdPenerima" (change)="onUkPenerimaChange($event.target.value)">
+                                            <option value="Coba1">
+                                                Coba1
+                                            </option>
+                                        </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label class="control-label col-md-3">Sub</label>
+                                        <div class="col-md-6">
+                                            <select name="unitKerjaPenerima" class="form-control" required [ngModel]="bpat.unitKerjaIdPenerima" (change)="onUkPenerimaChange($event.target.value)">
+                                                <option value="Coba1">
+                                                    Coba1
+                                                </option>
+                                            </select>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label class="control-label col-md-3">Sub</label>
+                                            <div class="col-md-6">
+                                                <select name="unitKerjaPenerima" class="form-control" required [ngModel]="bpat.unitKerjaIdPenerima" (change)="onUkPenerimaChange($event.target.value)">
+                                                    <option value="Coba1">
+                                                        Coba1
+                                                    </option>
+                                                </select>
+                                            </div>
+                                          </div>
+                                          
+                                </div>
+                         </div>
+                    </form>
+              </div>
+          </div>
+      </section>
+      

@@ -10,7 +10,7 @@
         <span class="fa fa-print"></span> Cetak
       </button>
       <button class="btn btn-sm btn-warning" routerLink="./edit">
-        <span class="fa fa-edit"></span> Ubah
+        <span class="fa fa-edit"></span> Penomoran
       </button>
       <!-- <button class="btn btn-sm btn-primary" routerLink="./pengembalian">
         <span class="fa fa-download"></span> Pengembalian
@@ -26,25 +26,25 @@
           <div class="document-code">VFR-011</div>
       </div>
       <div class="box-body">
-        <h4 class="text-center text-uppercase"><b>Daftar Pengembalian Aktiva Tetap</b></h4>
+        <h4 class="text-center text-uppercase"><b>Daftar Penambahan Aktiva Tetap</b></h4>
         <table class="table">
             <tr>
                 <td>
                     <dl class="dl-horizontal">
                         <dt>No. DPAT:</dt>
-                        <dd>{{dpat?.noDpat}}</dd>
+                        <dd>{{dpat.noDpat}}</dd>
                         <dt>No. BAPB/J:</dt>
                         <dd>{{dpat.bapb}}</dd>
                         <dt>Tanggal Perolehan:</dt>
-                        <dd>{{dpat?.tanggalDpat}}</dd>
+                        <dd>{{dpat.tanggalDpat}}</dd>
                       </dl>
                 </td>
                 <td>
                     <dl class="dl-horizontal">
                         <dt>Supplier:</dt>
                         <dd>{{dpat.namaSupplier}}</dd>
-                        <dt>Mata Anggaran:</dt>
-                        <dd>{{dpat.mataAnggaran}}</dd>
+                        <!-- <dt>Mata Anggaran:</dt> -->
+                        <!-- <dd>{{dpat.MataAnggaran}}</dd> -->
                       </dl>
                 </td>
             </tr>

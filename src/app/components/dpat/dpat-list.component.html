@@ -41,5 +41,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="box-footer">
+            <pagination [totalRows]="totalRows" [offset]="dpatService.offset" (offset)="onPaginationClick($event)">Pagination</pagination>
+          </div>
+          <div class="overlay" *ngIf="loadingTable">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
     </div>
 </section>

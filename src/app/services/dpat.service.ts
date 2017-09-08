@@ -31,19 +31,27 @@ import 'rxjs/add/operator/toPromise';
          }
         
         getDpatList(){
-            return this.http.get(this.local[0]).map(resp=>resp.json());
+            return this.http.get(this.api[0]).map(resp=>resp.json());
         }
         getDpatById(dpatId:number){
             const reqOpt = new MyRequestOptions({
                 'dpatId':dpatId,
             })
-            return this.http.get(this.local[0], reqOpt).map(resp=> resp.json());
+            return this.http.get(this.api[0], reqOpt).map(resp=> resp.json());
         }
+        getBapbList(){ 
+            let bapbList = [
+              { id: 1, text: "12345" },
+              { id: 2, text: "67890" },
+              { id: 3, text: "45678" }
+            ];
+            return bapbList;
+          }
         canActivate() {
             console.log('dpatServices canActivated loaded');
             this.offset = 0;
             return true;
-          }
+        }
     }
     export class Dpat{
         dpatId:number;

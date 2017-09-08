@@ -25,13 +25,13 @@ export class DpatDetailComponent{
         this.dpatService.getDpatById(id).subscribe(
             resp=>
             {
-                // console.log(resp);
+                console.log(resp);
                 if (resp.data.length === 0 || resp.data == '') {
                     this.appService.showAlert('danger', 'Data DPAT tidak ditemukan.');
                     window.history.back();
                     return;
                 }
-                this.dpat=resp.data;
+                this.dpat=resp.data[0];
                 this.loading=false;
             },
             error=>{
